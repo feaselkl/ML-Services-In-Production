@@ -127,7 +127,7 @@ You can execute scripts using `sp_execute_external_script`.  This includes `inst
 
 If you go down this route, you should keep a script with package installation steps; that way you can re-run it on different servers and maintain a log of what you have installed.
 
----?image=presentation/assets/background/brown-packages.jpg&size=cover&opacity=20
+---?image=presentation/assets/background/brown-package.jpg&size=cover&opacity=20
 
 ### rxInstallPackages
 
@@ -393,7 +393,7 @@ These kinds of scenarios work really well with SQL Server ML Services:
 4. You want to interact with R using .NET code.
 5. You do not need real-time interactivity.
 
----?image=presentation/assets/background/surfer-crash.jpg&size=cover&opacity=20
+---?image=presentation/assets/background/surfer-crash.jpg&size=cover&opacity=25
 
 ### What Doesn't Work
 
