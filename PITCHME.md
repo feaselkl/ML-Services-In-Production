@@ -73,19 +73,19 @@ My goals in this talk:
 
 ### Start a New Installation
 
-<img src="presentation/assets/image/A01 - New Installation.png" height="525" width="780" />
+<img src="presentation/assets/image/A01_New_Installation.png" height="525" width="780" />
 
 ---
 
 ### Select ML Services
 
-<img src="presentation/assets/image/A02 - Install Options.png" height="471" width="719" />
+<img src="presentation/assets/image/A02_Install_Options.png" height="471" width="719" />
 
 ---
 
 ### Enable External Scripts
 
-<img src="presentation/assets/image/A03 - Enable External Scripts.png" height="267" width="969" />
+<img src="presentation/assets/image/A03_Enable_External_Scripts.png" height="267" width="969" />
 
 ---
 
@@ -135,7 +135,7 @@ The `rxInstallPackages` function is Microsoft's function for safe installation o
 
 Maintaining a log of global package installs would be helpful here as well.
 
---
+---
 
 ### CREATE EXTERNAL LIBRARY
 
@@ -355,7 +355,13 @@ There are also files in your SQL Server logs folder, underneath an `Extensibilit
 
 ### File Cleanup
 
-Temporary data for ML Services runs are stored in an Extensibility Data folder.  For 2019, it is in `C:\SQL-MSSQLSERVER-ExtensibilityData\AppContainer[0-20]` and for 2017, it is in `%PROGRAMFILES%\MSSQL14.MSSQLSERVER\MSSQL\ExtensibilityData\MSSQLSERVER[00-20]` by default.  Each run creates a subfolder in one of the container folders.
+Temporary data for ML Services runs are stored in an Extensibility Data folder.  For 2019, it is in `C:\SQL-MSSQLSERVER-ExtensibilityData\AppContainer[0-20]`
+
+For 2017, it is in `%PROGRAMFILES%\MSSQL14.MSSQLSERVER\MSSQL\ ExtensibilityData\MSSQLSERVER[00-20]` by default.  Each run creates a subfolder in one of the container folders.
+
+---
+
+### File Cleanup
 
 When you restart the Launchpad service, it deletes these subfolders, but if you have huge numbers of them, the delete operation may not finish in time for the service to restart.  We have a scheduled task which runs occasionally and deletes the subfolders when they are more than a day old.  Once an ML Services task is complete, it no longer needs anything in this subfolder so they are safe to delete.
 
