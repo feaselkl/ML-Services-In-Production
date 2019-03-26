@@ -141,6 +141,8 @@ Maintaining a log of global package installs would be helpful here as well.
 
 The `CREATE EXTERNAL LIBRARY` requires `GRANT ALTER ANY EXTERNAL LIBRARY` and allows you to install a package from a zip file.
 
+<img src="presentation/assets/image/Create_External_Library_Permission_Denied.png" height="369" width="714" />
+
 ---
 
 ### miniCRAN
@@ -279,43 +281,43 @@ There are a few steps to binding.  These instructions are for SQL Server 2017; 2
 
 ### Download ML Server
 
-<img src="presentation/assets/image/01 - Download MLS Update.png" height="457" width="799" />
+<img src="presentation/assets/image/01_Download_MLS_Update.png" height="457" width="799" />
 
 ---
 
 ### Bind to SQL Server
 
-<img src="presentation/assets/image/02 - Bind Installation.png" height="480" width="560" />
+<img src="presentation/assets/image/02_Bind_Installation.png" height="480" width="560" />
 
 ---
 
 ### Accept License Terms
 
-<img src="presentation/assets/image/03 - Accept Terms.png" height="480" width="560" />
+<img src="presentation/assets/image/03_Accept_Terms.png" height="480" width="560" />
 
 ---
 
 ### Accept R Open License
 
-<img src="presentation/assets/image/04 - R Open License.png" height="480" width="560" />
+<img src="presentation/assets/image/04_R_Open_License.png" height="480" width="560" />
 
 ---
 
 ### Accept Anaconda License
 
-<img src="presentation/assets/image/05 - Anaconda License.png" height="480" width="560" />
+<img src="presentation/assets/image/05_Anaconda_License.png" height="480" width="560" />
 
 ---
 
 ### Install
 
-<img src="presentation/assets/image/06 - Install.png" height="480" width="560" />
+<img src="presentation/assets/image/06_Install.png" height="480" width="560" />
 
 ---
 
 ### Wait For Completion
 
-<img src="presentation/assets/image/07 - Installation In Progress.png" height="480" width="560" />
+<img src="presentation/assets/image/07_Installation_In_Progress.png" height="480" width="560" />
 
 ---
 
