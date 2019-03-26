@@ -335,7 +335,9 @@ To prevent this, use the Resource Governor, which can control CPU, memory, and I
 
 ---
 
-TODO:  resource governor
+### External Pools
+
+Resource Governor has regular pools for controlling SQL Server behavior and external pools for controlling the Launchpad.  We can create resource pools and classifier functions to segregate sessions into these pools.  They can help you keep a busy server from falling over due to a poorly-timed dev query.
 
 ---?image=presentation/assets/background/demo.jpg&size=cover&opacity=20
 
