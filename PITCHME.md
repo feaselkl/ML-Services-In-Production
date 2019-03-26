@@ -36,7 +36,7 @@
 </div>
 @snapend
 
----
+---?image=presentation/assets/background/questions.jpg&size=cover&opacity=20
 
 ### What is ML Services?
 
@@ -105,7 +105,7 @@ Once you have enabled external scripts, be sure to restart the Launchpad service
 5. Managing ML Services
 6. General Tips
 
----
+---?image=presentation/assets/background/blue-package.jpg&size=cover&opacity=20
 
 ## Package Management
 
@@ -127,7 +127,7 @@ You can execute scripts using `sp_execute_external_script`.  This includes `inst
 
 If you go down this route, you should keep a script with package installation steps; that way you can re-run it on different servers and maintain a log of what you have installed.
 
----
+---?image=presentation/assets/background/brown-packages.jpg&size=cover&opacity=20
 
 ### rxInstallPackages
 
@@ -209,7 +209,7 @@ SQL Server has a rich set of role-based access controls around things such as:
 5. Managing ML Services
 6. General Tips
 
----
+---?image=presentation/assets/background/sinkhole.jpg&size=cover&opacity=20
 
 ### Where Code Belongs
 
@@ -231,13 +231,13 @@ Instead of storing all of your code in SQL queries, create a local package with 
 
 ### Demo Time
 
----
+---?image=presentation/assets/background/wrapping-paper.jpg&size=cover&opacity=20
 
 ### Isolate External Script Calls
 
 Create wrapper procedures to call the external script procedures.  This allows you to call your R or Python code within SQL Server but without any permanent results.  Doing this is critical for troubleshooting code oddities.
 
----
+---?image=presentation/assets/background/shelves.jpg&size=cover&opacity=20
 
 ### Storing Models
 
@@ -333,7 +333,7 @@ Machine Learning Services can eat up CPU and memory outside of SQL Server.  In h
 
 To prevent this, use the Resource Governor, which can control CPU, memory, and I/O utilization for external scripts.
 
----
+---?image=presentation/assets/background/lake.jpg&size=cover&opacity=20
 
 ### External Pools
 
@@ -381,7 +381,7 @@ When you restart the Launchpad service, it deletes these subfolders, but if you 
 5. Managing ML Services
 6. **General Tips**
 
----
+---?image=presentation/assets/background/jump.jpg&size=cover&opacity=20
 
 ### What Works Well
 
@@ -393,7 +393,7 @@ These kinds of scenarios work really well with SQL Server ML Services:
 4. You want to interact with R using .NET code.
 5. You do not need real-time interactivity.
 
----
+---?image=presentation/assets/background/surfer-crash.jpg&size=cover&opacity=20
 
 ### What Doesn't Work
 
@@ -415,13 +415,13 @@ My biases:
 4. Some RevoScaleR models (especially neural networks) are weak.
 5. If you need parallel processing, RevoScaleR is a good bet.
 
----
+---?image=presentation/assets/background/repetition.jpg&size=cover&opacity=20
 
 ### Parallel Processing
 
 `sp_execute_external_script` has an `@parallel` option to try to parallelize non-RevoScaleR operations which can work with single rows of data independent of other rows--batch predictions, for example.  This can speed up certain operations considerably...but so could using RevoScaleR functions, where parallelism is on by default.
 
----
+---?image=presentation/assets/background/wrappingup.jpg&size=cover&opacity=20
 
 ### Wrapping Up
 
