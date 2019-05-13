@@ -111,7 +111,7 @@ Once you have enabled external scripts, be sure to restart the Launchpad service
 
 There are several techniques for installing packages in R.  Some require direct Internet access, whereas others will allow you to install packages offline.  Some are easier to run, whereas others trade added complexity for a simpler central management story down the road.
 
----
+---?image=presentation/assets/background/crt.jpg&size=cover&opacity=20
 
 ### R Console
 
@@ -181,7 +181,7 @@ Another option is to download zip files of your desired packages (and their depe
 
 Users who wish to execute external scripts will need the `GRANT EXECUTE ANY EXTERNAL SCRIPT` permission.  Alternatively, the user may be in the `db_owner` database role or the `sysadmin` server role.
 
----?image=presentation/assets/background/police.jpg&size=cover&opacity=20
+---?image=presentation/assets/background/police.jpg&size=cover&opacity=15
 
 ### Role-Based Access Control
 
@@ -227,7 +227,7 @@ Instead of storing all of your code in SQL queries, create a reference library w
 
 ### Demo Time
 
----?image=presentation/assets/background/isolation.jpg&size=cover&opacity=20
+---?image=presentation/assets/background/isolation.jpg&size=cover&opacity=35
 
 ### Isolate External Script Calls
 
