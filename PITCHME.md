@@ -175,13 +175,13 @@ Another option is to download zip files of your desired packages (and their depe
 5. Managing ML Services
 6. General Tips
 
----
+---?image=presentation/assets/background/running.jpg&size=cover&opacity=20
 
 ### Executing Scripts
 
-Users who wish to execute external scripts will need the `GRANT EXECUTE ANY EXTERNAL SCRIPT` permission.  Alteratively, the user may be in the `db_owner` database role or the `sysadmin` server role.
+Users who wish to execute external scripts will need the `GRANT EXECUTE ANY EXTERNAL SCRIPT` permission.  Alternatively, the user may be in the `db_owner` database role or the `sysadmin` server role.
 
----
+---?image=presentation/assets/background/police.jpg&size=cover&opacity=20
 
 ### Role-Based Access Control
 
@@ -192,10 +192,6 @@ SQL Server has a rich set of role-based access controls around things such as:
 3. Installing packages
 4. Executing stored procedures
 5. Running predictions with `PREDICT` or `sp_rxPredict`
-
----?image=presentation/assets/background/demo.jpg&size=cover&opacity=20
-
-### Demo Time
 
 ---
 
@@ -217,11 +213,11 @@ Putting small snippets of code in text as part of a call to `sp_execute_external
 
 The best option is to segregate your R or Python code from your SQL workflows as much as possible, akin to how dependency injection separates external resources from internal code.
 
----
+---?image=presentation/assets/background/library.jpg&size=cover&opacity=20
 
 ### R Packages
 
-Instead of storing all of your code in SQL queries, create a local package with your code.  This offers a few benefits:
+Instead of storing all of your code in SQL queries, create a reference library with your code.  This offers a few benefits:
 
 1. Development using R Studio is easier for your data scientists.
 2. Debugging R code is much easier outside of SQL Server.
@@ -231,7 +227,7 @@ Instead of storing all of your code in SQL queries, create a local package with 
 
 ### Demo Time
 
----?image=presentation/assets/background/wrapping-paper.jpg&size=cover&opacity=20
+---?image=presentation/assets/background/isolation.jpg&size=cover&opacity=20
 
 ### Isolate External Script Calls
 
@@ -249,7 +245,7 @@ When working with R, there are a few places we can store models and other binari
 
 Each comes with its own benefits and drawbacks.
 
----
+---?image=presentation/assets/background/folders.jpg&size=cover&opacity=20
 
 ### Updating Code Packages
 
@@ -269,7 +265,7 @@ For third-party libraries, `update.packages()` will update all packages.  Using 
 5. **Managing ML Services**
 6. General Tips
 
----
+---?image=presentation/assets/background/binders.jpg&size=cover&opacity=20
 
 ### Upgrading R or Python
 
@@ -319,13 +315,13 @@ There are a few steps to binding.  These instructions are for SQL Server 2017; 2
 
 <img src="presentation/assets/image/07_Installation_In_Progress.png" height="480" width="560" />
 
----
+---?image=presentation/assets/background/rocket.jpg&size=cover&opacity=20
 
 ### Restart the Launchpad
 
 Once you have enabled external scripts, be sure to restart the Launchpad service.  To be safe, you might want to restart the SQL Server service as well.
 
----
+---?image=presentation/assets/background/hotel-governor.jpg&size=cover&opacity=20
 
 ### Using Resoure Governor
 
@@ -343,7 +339,7 @@ Resource Governor has regular pools for controlling SQL Server behavior and exte
 
 ### Demo Time
 
----
+---?image=presentation/assets/background/binoculars.jpg&size=cover&opacity=20
 
 ### DMVs and Administration
 
@@ -355,7 +351,7 @@ There are also files in your SQL Server logs folder, underneath an `Extensibilit
 
 ### Demo Time
 
----
+---?image=presentation/assets/background/cleaning.jpg&size=cover&opacity=20
 
 ### File Cleanup
 
@@ -363,7 +359,7 @@ Temporary data for ML Services runs are stored in an Extensibility Data folder. 
 
 For 2017, it is in `%PROGRAMFILES%\MSSQL14.MSSQLSERVER\MSSQL\ ExtensibilityData\MSSQLSERVER[00-20]` by default.  Each run creates a subfolder in one of the container folders.
 
----
+---?image=presentation/assets/background/time.jpg&size=cover&opacity=20
 
 ### File Cleanup
 

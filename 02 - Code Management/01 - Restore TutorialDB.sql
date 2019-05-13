@@ -5,6 +5,6 @@ GO
 RESTORE DATABASE TutorialDB
    FROM DISK = 'C:\Temp\TutorialDB.bak'
    WITH
-        MOVE 'TutorialDB' TO 'C:\SQL\Data\TutorialDB.mdf',
-        MOVE 'TutorialDB_log' TO 'C:\SQL\Logs\TutorialDB.ldf';
+        MOVE 'TutorialDB' TO 'C:\SQLServer\Data\TutorialDB.mdf',
+        MOVE 'TutorialDB_log' TO 'C:\SQLServer\Logs\TutorialDB.ldf';
 GO
