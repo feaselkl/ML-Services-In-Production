@@ -5,6 +5,6 @@ GO
 EXEC sp_execute_external_script
 	@language = N'R',
 	@script = N'install.packages("tidyverse",
-        lib="C:/SQL/MSSQL15.MSSQLSERVER/R_SERVICES/library",
+        lib="C:/SQLServer/MSSQL15.MSSQLSERVER/R_SERVICES/library",
         repos = "http://cran.us.r-project.org")';
 GO

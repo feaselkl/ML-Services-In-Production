@@ -7,3 +7,4 @@ CREATE TABLE rental_rx_models
     model VARBINARY(MAX) NOT NULL
 );
 GO
+SELECT * FROM dbo.rental_rx_models rrm

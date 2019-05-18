@@ -29,6 +29,11 @@ BEGIN
 	DROP EXTERNAL RESOURCE POOL devExternalResourcePool;
 END
 GO
+ALTER RESOURCE POOL "default" WITH (max_memory_percent = 100);
+GO
+ALTER EXTERNAL RESOURCE POOL "default" WITH (max_memory_percent = 100);
+-- Publish our changes.
+ALTER RESOURCE GOVERNOR RECONFIGURE;
 -- Check that everything looks fine.
 SELECT * 
 FROM sys.resource_governor_workload_groups;
