@@ -46,13 +46,13 @@ rental_train_data$Holiday = factor(rental_train_data$Holiday);
 rental_train_data$Snow = factor(rental_train_data$Snow);
 rental_train_data$WeekDay = factor(rental_train_data$WeekDay);
 
-if(model_type == "linear") {
+if(model_type == "dtree") {
 	#Create a dtree model and train it using the training data set
 	model_dtree <- rxDTree(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, data = rental_train_data);
 	trained_model <- rxSerializeModel(model_dtree, realtimeScoringOnly = TRUE);
 	}
 
-if(model_type == "dtree") {
+if(model_type == "linear") {
 	model_linmod <- rxLinMod(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, data = rental_train_data);
 	#Before saving the model to the DB table, we need to serialize it. This time, as a native scoring model
 	trained_model <- rxSerializeModel(model_linmod, realtimeScoringOnly = TRUE);
