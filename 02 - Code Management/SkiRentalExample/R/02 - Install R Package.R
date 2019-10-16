@@ -1,9 +1,23 @@
-# Demonstrate installation via the command prompt.
-# Navigate to C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\R_SERVICES\bin
-# Run R.exe
+# Demonstrate installation via sqlmlutils.
+# Refer to 00 - Running sqlmlutils.R for installation instructions and basics.
 
-# Run this only if you have the ski rental project already installed: 
-# remove.packages("SkiRentalProject")
-#install.packages("C:/SourceCode/ML-Services-In-Production/02 - Code Management/SkiRentalExample/R/SkiRentalProject_0.1.0.zip", repos = NULL, lib="C:/Program Files/Microsoft SQL Server/MSSQL14.MSSQLSERVER/R_SERVICES/library")
+library(sqlmlutils)
+db_connection <- connectionInfo(server = "localhost", database = "TutorialDB")
 
-install.packages("C:/SourceCode/ML-Services-In-Production/02 - Code Management/SkiRentalExample/R/SkiRentalProject_0.1.0.zip", repos = NULL, lib="C:/SQLServer/MSSQL15.MSSQLSERVER/R_SERVICES/library")
+# Run this only if you have the ski rental project already installed:
+sql_remove.packages(
+  connectionString = db_connection,
+  pkgs = "SkiRentalProject",
+  dependencies = FALSE,
+  checkReferences = TRUE,
+  scope = "PUBLIC",
+  verbose = TRUE
+)
+
+sql_install.packages(
+  connectionString = db_connection,
+  pkgs = "../SkiRentalProject_0.1.0.zip",
+  verbose = TRUE,
+  scope = "PUBLIC",
+  repos = NULL
+)
