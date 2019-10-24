@@ -63,9 +63,9 @@ My goals in this talk:
 
 ## Agenda
 1. **Installing ML Services**
-2. Managing Packages
-3. Security and Roles
-4. Code Management
+2. Installing Packages
+3. Code Management
+4. Security and Roles
 5. Managing ML Services
 6. General Tips
 
@@ -87,7 +87,7 @@ My goals in this talk:
 
 <img src="presentation/assets/image/A03_Enable_External_Scripts.png" height="267" width="969" />
 
----
+---?image=presentation/assets/background/rocket.jpg&size=cover&opacity=20
 
 ### Restart the Launchpad
 
@@ -99,9 +99,9 @@ Once you have enabled external scripts, be sure to restart the Launchpad service
 
 ## Agenda
 1. Installing ML Services
-2. **Managing Packages**
-3. Security and Roles
-4. Code Management
+2. **Installing Packages**
+3. Code Management
+4. Security and Roles
 5. Managing ML Services
 6. General Tips
 
@@ -109,7 +109,19 @@ Once you have enabled external scripts, be sure to restart the Launchpad service
 
 ## Package Management
 
-There are several techniques for installing packages in R.  Some require direct Internet access, whereas others will allow you to install packages offline.  Some are easier to run, whereas others trade added complexity for a simpler central management story down the road.
+There are several techniques for installing packages in R.  Key factors in deciding what to do are:
+
+
+* Which SQL Server Version?
+* Do you have internet access?
+* Do you prefer easier options or more feature-rich options?
+* Do you require central management of many instances?
+
+---
+
+### sqlmlutils
+
+The `sqlmlutils` package allows you to install R or Python code remotely.  This is the **best** way to install packages for SQL Server 2019 or 2017.
 
 ---?image=presentation/assets/background/crt.jpg&size=cover&opacity=20
 
@@ -117,7 +129,7 @@ There are several techniques for installing packages in R.  Some require direct 
 
 If you have **administrative access** to the machine running SQL Server, you can open up the R console and run `install.packages()` in the console.
 
-By default, the console is installed at `%PROGRAMFILES%\Microsoft SQL Server\MSSQL14.MSSQLSERVER\R_SERVICES\bin`.
+By default, the console is installed in the `\R_SERVICES\bin` folder.
 
 ---
 
@@ -125,15 +137,13 @@ By default, the console is installed at `%PROGRAMFILES%\Microsoft SQL Server\MSS
 
 You can execute scripts using `sp_execute_external_script`.  This includes `install.packages()`.
 
-If you go down this route, you should keep a script with package installation steps; that way you can re-run it on different servers and maintain a log of what you have installed.
+This technique does **not** work well for SQL Server 2019.
 
 ---?image=presentation/assets/background/brown-package.jpg&size=cover&opacity=20
 
 ### rxInstallPackages
 
-The `rxInstallPackages` function is Microsoft's function for safe installation of packages.  It is a potential replacement for `install.packages()`, adding the ability to install pakages into per-database, per-user repositories.  You can call it via `sp_execute_external_script` as well.
-
-Maintaining a log of global package installs would be helpful here as well.
+The `rxInstallPackages` function is Microsoft's function for safe installation of packages.  It is a potential replacement for `install.packages()`, adding the ability to install pakages into per-database, per-user repositories.  You can call it via `sp_execute_external_script` as well for versions prior to SQL Server 2019.
 
 ---
 
@@ -165,43 +175,13 @@ Another option is to download zip files of your desired packages (and their depe
 
 ---
 
-@title[Security and Roles]
-
-## Agenda
-1. Installing ML Services
-2. Managing Packages
-3. **Security and Roles**
-4. Code Management
-5. Managing ML Services
-6. General Tips
-
----?image=presentation/assets/background/running.jpg&size=cover&opacity=20
-
-### Executing Scripts
-
-Users who wish to execute external scripts will need the `GRANT EXECUTE ANY EXTERNAL SCRIPT` permission.  Alternatively, the user may be in the `db_owner` database role or the `sysadmin` server role.
-
----?image=presentation/assets/background/police.jpg&size=cover&opacity=15
-
-### Role-Based Access Control
-
-SQL Server has a rich set of role-based access controls around things such as:
-
-1. Reading from or writing to specific tables
-2. Executing external scripts
-3. Installing packages
-4. Executing stored procedures
-5. Running predictions with `PREDICT` or `sp_rxPredict`
-
----
-
 @title[Code Management]
 
 ## Agenda
 1. Installing ML Services
-2. Managing Packages
-3. Security and Roles
-4. **Code Management**
+2. Installing Packages
+3. **Code Management**
+4. Security and Roles
 5. Managing ML Services
 6. General Tips
 
@@ -255,13 +235,43 @@ For third-party libraries, `update.packages()` will update all packages.  Using 
 
 ---
 
+@title[Security and Roles]
+
+## Agenda
+1. Installing ML Services
+2. Installing Packages
+3. Code Management
+4. **Security and Roles**
+5. Managing ML Services
+6. General Tips
+
+---?image=presentation/assets/background/running.jpg&size=cover&opacity=20
+
+### Executing Scripts
+
+Users who wish to execute external scripts will need the `GRANT EXECUTE ANY EXTERNAL SCRIPT` permission.  Alternatively, the user may be in the `db_owner` database role or the `sysadmin` server role.
+
+---?image=presentation/assets/background/police.jpg&size=cover&opacity=15
+
+### Role-Based Access Control
+
+SQL Server has a rich set of role-based access controls around things such as:
+
+1. Reading from or writing to specific tables
+2. Executing external scripts
+3. Installing packages
+4. Executing stored procedures
+5. Running predictions with `PREDICT` or `sp_rxPredict`
+
+---
+
 @title[Managing ML Services]
 
 ## Agenda
 1. Installing ML Services
-2. Managing Packages
-3. Security and Roles
-4. Code Management
+2. Installing Packages
+3. Code Management
+4. Security and Roles
 5. **Managing ML Services**
 6. General Tips
 
@@ -355,15 +365,17 @@ There are also files in your SQL Server logs folder, underneath an `Extensibilit
 
 ### File Cleanup
 
-Temporary data for ML Services runs are stored in an Extensibility Data folder.  For 2019, it is in `C:\SQL-MSSQLSERVER-ExtensibilityData\AppContainer[0-20]`
+Temporary data for ML Services runs are stored in an Extensibility Data folder.
 
-For 2017, it is in `%PROGRAMFILES%\MSSQL14.MSSQLSERVER\MSSQL\ ExtensibilityData\MSSQLSERVER[00-20]` by default.  Each run creates a subfolder in one of the container folders.
+For 2016-2017, it is in `%PROGRAMFILES%\MSSQL14.MSSQLSERVER\MSSQL\ ExtensibilityData\MSSQLSERVER[00-20]` by default.  Each run creates a subfolder in one of the container folders.
 
 ---?image=presentation/assets/background/time.jpg&size=cover&opacity=20
 
 ### File Cleanup
 
-When you restart the Launchpad service, it deletes these subfolders, but if you have huge numbers of them, the delete operation may not finish in time for the service to restart.  We have a scheduled task which runs occasionally and deletes the subfolders when they are more than a day old.  Once an ML Services task is complete, it no longer needs anything in this subfolder so they are safe to delete.
+When you restart the Launchpad service, it deletes these subfolders, but if you have huge numbers of them on 2016 and 2017, the delete operation may not finish in time for the service to restart.
+
+Once an ML Services task is complete, it no longer needs anything in this subfolder so they are safe to delete, so you can create a scheduled task to clean these regularly.
 
 ---
 
@@ -371,9 +383,9 @@ When you restart the Launchpad service, it deletes these subfolders, but if you 
 
 ## Agenda
 1. Installing ML Services
-2. Managing Packages
-3. Security and Roles
-4. Code Management
+2. Installing Packages
+3. Code Management
+4. Security and Roles
 5. Managing ML Services
 6. **General Tips**
 
@@ -426,3 +438,5 @@ SQL Server Machine Learning Services offers the ability to operationalize R or P
 To learn more, go here:  <a href="http://csmore.info/on/r">http://CSmore.info/on/mlservices</a>
 
 And for help, contact me:  <a href="mailto:feasel@catallaxyservices.com">feasel@catallaxyservices.com</a> | <a href="https://www.twitter.com/feaselkl">@feaselkl</a>
+
+Catallaxy Services consulting:  <a href="https://csmore.info/contact">https://CSmore.info/on/contact</a>
