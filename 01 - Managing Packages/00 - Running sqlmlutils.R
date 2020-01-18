@@ -13,7 +13,7 @@ install.packages("C:\\temp\\sqlmlutils_0.7.1.zip", repos = NULL)
 library(sqlmlutils)
 
 # NOTE:  need to do this for *each* database!
-db_connection <- connectionInfo(server = "localhost", database = "Scratch")
+db_connection <- connectionInfo(driver = "ODBC Driver 17 for SQL Server", server = "localhost", database = "Scratch")
 
 # Install one package.
 sql_install.packages(

@@ -2,7 +2,7 @@
 # Refer to 00 - Running sqlmlutils.R for installation instructions and basics.
 
 library(sqlmlutils)
-db_connection <- connectionInfo(server = "localhost", database = "TutorialDB")
+db_connection <- connectionInfo(driver = "ODBC Driver 17 for SQL Server", server = "localhost", database = "TutorialDB")
 
 # Run this only if you have the ski rental project already installed:
 sql_remove.packages(
