@@ -435,7 +435,7 @@ My biases:
 
 SQL Server Machine Learning Services offers the ability to operationalize R or Python effectively, though it is not without its challenges.
 
-To learn more, go here:  <a href="http://csmore.info/on/r">http://CSmore.info/on/mlservices</a>
+To learn more, go here:  <a href="http://csmore.info/on/mlservices">http://CSmore.info/on/mlservices</a>
 
 And for help, contact me:  <a href="mailto:feasel@catallaxyservices.com">feasel@catallaxyservices.com</a> | <a href="https://www.twitter.com/feaselkl">@feaselkl</a>
 
